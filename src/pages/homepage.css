@@ -1,0 +1,24 @@
+.button-homepage {
+    display: inline-flex;
+    padding: 28px 67px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #0AFF14 0%, #F430A6 100%);
+    border: 1px solid black;
+    margin-top: 75vh;
+    margin-left: 8vw;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    text-transform: uppercase;
+}
+
+body {
+    background: url('../assets/herosection.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
