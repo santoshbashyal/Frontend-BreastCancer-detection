@@ -101,7 +101,7 @@ const UploadPage = () => {
               <option value="ann" >ANN </option>
               <option value="final-cnn">Final CNN </option>
               <option value="base-cnn">Base CNN</option>
-              <option value="resNet">ResNet</option>
+              
             </select>
           </div>
 
@@ -112,11 +112,19 @@ const UploadPage = () => {
           >
             Process Image
           </button>
-          {result?.status ?
-          <div className="result-section" style={{backgroundColor: result?.data  !== 'Cancer Detected' ? 'green'  : 'red', color: 'white'}}>
-             <p style={{textAlign: 'center'}}>{result?.data}</p> 
+          {!result?.image && result.status  ? <div className="result-section" style={{backgroundColor: 'red', color: 'white'}}>
+             <p style={{textAlign: 'center'}}>Image is not supported!</p> 
+
             {error ? <p>{error}</p> : null}
-          </div>: null}
+          </div> : (
+            result?.status ?
+            <div className="result-section" style={{backgroundColor: result?.data  !== 'Cancer Detected' ? 'green'  : 'red', color: 'white'}}>
+               <p style={{textAlign: 'center'}}>{result?.data}</p> 
+               <p style={{textAlign: 'center'}}>Prediction: {result?.prediction > 0.6 ? result?.prediction * 100 :  100 - (result?.prediction * (100/60) * 100)}% </p> 
+  
+              {error ? <p>{error}</p> : null}
+            </div>: null
+          )}
         </div>
       )}
     </div>
